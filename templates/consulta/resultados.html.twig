@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Consulta Instituto{% endblock %}
+
+{% block body %}
+
+  <div class="container">
+
+{#      {{ votos|json_encode(constant('JSON_PRETTY_PRINT')) }}#}
+      {% set nvotos = consultas|length %}
+
+      <img src="{{ asset("images/ccm-logo-gris.png") }}" alt="CCM logo" class="my-5">
+
+      <div class="resultados-title">ENCUESTA DE TRANSFORMACIÓN<br>
+      DE CENTRO A INSTITUTO</div>
+      <div class="resultados-subtitle">Encuesta sobre la pertinencia de crear un documento que sustente la transformación del CCM a Instituto.</div>
+
+      <div class="resultados row my-5">
+          <div class="col-12 col-sm-8">
+              <div class="resultados-block">
+                  <p class="resultados-pregunta mb-4">1. ¿Usted cree que hay tareas y/o procesos en el CCM que todavía no están lo
+                      suficientemente maduros para iniciar un proceso de transformación a Instituto?</p>
+                  <div class="mt-3">Si: {{ votos[0] }}</div>
+                  <div class="progress mb-3">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: {{ (votos[0]/nvotos)*100 }}%;" aria-valuenow="{{ (votos[0]/nvotos)*100 }}" aria-valuemin="0" aria-valuemax="{{ nvotos }}"></div>
+                  </div>
+                  <div class="mt-2">No: {{ votos[1] }}</div>
+                  <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: {{ (votos[1]/nvotos)*100 }}%;" aria-valuenow="{{ (votos[1]/nvotos)*100 }}" aria -valuemin="0" aria-valuemax="{{ nvotos }}"></div>
+                  </div>
+              </div>
+              <div class="mt-5 d-flex justify-content-end">
+                  <a class="btn btn-outline-success" href="{{ path('app_consulta_comentarios', {pregunta: 0}) }}" role="button">Ver los comentarios <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <hr class="mt-5">
+        </div>
+      </div>
+
+      <div class="resultados row my-5">
+          <div class="col-12 col-sm-8">
+              <div class="resultados-block">
+                  <p class="resultados-pregunta mb-4">2. En base a su respuesta de la pregunta 1, ¿considera que no hay
+                      impedimento para trabajar en un documento de transformación a Instituto tomando en cuenta las
+                      fortalezas y las debilidades(en caso de haberlas) del CCM?</p>
+                  <div class="mt-3">Si: {{ votos[2] }}</div>
+                  <div class="progress mb-3">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: {{ (votos[2]/nvotos)*100 }}%;" aria-valuenow="{{ (votos[2]/nvotos)*100 }}" aria-valuemin="0" aria-valuemax="{{ nvotos }}"></div>
+                  </div>
+                  <div class="mt-2">No: {{ votos[3] }}</div>
+                  <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: {{ (votos[3]/nvotos)*100 }}%;" aria-valuenow="{{ (votos[3]/nvotos)*100 }}" aria -valuemin="0" aria-valuemax="{{ nvotos }}"></div>
+                  </div>
+              </div>
+              <div class="mt-5 d-flex justify-content-end">
+                  <a class="btn btn-outline-success" href="{{ path('app_consulta_comentarios', {pregunta: 1}) }}" role="button">Ver los comentarios <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <hr class="mt-5">
+          </div>
+      </div>
+
+      <div class="resultados row my-5">
+          <div class="col-12 col-sm-8">
+              <div class="resultados-block">
+                  <p class="resultados-pregunta mb-4">3. ¿Considera que el CCM tiene elementos académicos sólidos para
+                      iniciar con los trabajos de creación de un documento que contemple la transformación de Centro a Instituto.?</p>
+                  <div class="mt-3">Si: {{ votos[4] }}</div>
+                  <div class="progress mb-3">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: {{ (votos[4]/nvotos)*100 }}%;" aria-valuenow="{{ (votos[4]/nvotos)*100 }}" aria-valuemin="0" aria-valuemax="{{ nvotos }}"></div>
+                  </div>
+                  <div class="mt-2">No: {{ votos[5] }}</div>
+                  <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: {{ (votos[5]/nvotos)*100 }}%;" aria-valuenow="{{ (votos[5]/nvotos)*100 }}" aria -valuemin="0" aria-valuemax="{{ nvotos }}"></div>
+                  </div>
+              </div>
+              <div class="mt-5 d-flex justify-content-end">
+                  <a class="btn btn-outline-success" href="{{ path('app_consulta_comentarios', {pregunta: 2}) }}" role="button">Ver los comentarios <i class="bi bi-arrow-right"></i></a>
+              </div>
+              <hr class="mt-5">
+          </div>
+      </div>
+
+      <div class="resultados row my-5">
+          <div class="col-12 col-sm-8">
+              <div class="resultados-block">
+                  <p class="resultados-pregunta mb-3">4. ¿Usted participaría en alguna comisión (de varias que se formarían)
+                      para trabajar, analizar y describir determinados temas que formarían parte del documento que de sustento
+                      a la transformación a Instituto ?</p>
+                  <p class="text-secondary mb-4">
+                      Algunos de estos temas o comisiones pueden ser por ejemplo: (i) Antecedentes, (ii) Situación Actual
+                      del CCM, (iii) El CCM en el contexto nacional e internacional, (iv) Docencia, Posgrado y Formación
+                      de Recursos Humanos, (v) áreas de investigación actuales, áreas nuevas, interdisciplinariedad, (vi)
+                      Las Unidades de Apoyo, (vii) Vinculación con sectores públicos y privados de la sociedad, (viii) el
+                      CCM a mediano y largo plazo, etc, solo por citar solo algunos temas a considerar.)
+                  </p>
+                  <div class="mt-3">Si: {{ votos[6] }}</div>
+                  <div class="progress mb-3">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: {{ (votos[6]/nvotos)*100 }}%;" aria-valuenow="{{ (votos[6]/nvotos)*100 }}" aria-valuemin="0" aria-valuemax="{{ nvotos }}"></div>
+                  </div>
+                  <div class="mt-2">No: {{ votos[7] }}</div>
+                  <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: {{ (votos[7]/nvotos)*100 }}%;" aria-valuenow="{{ (votos[7]/nvotos)*100 }}" aria -valuemin="0" aria-valuemax="{{ nvotos }}"></div>
+                  </div>
+              </div>
+              <div class="mt-5 d-flex justify-content-end">
+                  <a class="btn btn-outline-success" href="{{ path('app_consulta_comentarios', {pregunta: 3}) }}" role="button">Ver los comentarios <i class="bi bi-arrow-right"></i></a>              </div>
+              <hr class="mt-5">
+          </div>
+      </div>
+
+
+  </div>
+
+
+{% endblock %}

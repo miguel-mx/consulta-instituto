@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Consulta - Comentarios{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+        <div class="row mt-5">
+            <div class="col-12 col-lg-8">
+
+                {% set nombreComentario = "" %}
+
+                {% if pregunta == 0 %}
+                    <p class="resultados-pregunta my-4">1. ¿Usted cree que hay tareas y/o procesos en el CCM que todavía no están lo
+                    suficientemente maduros para iniciar un proceso de transformación a Instituto?</p>
+                    {% set nombreComentario = "comentario1" %}
+                {% elseif pregunta == 1 %}
+                    <p class="resultados-pregunta mb-4">2. En base a su respuesta de la pregunta 1, ¿considera que no hay
+                    impedimento para trabajar en un documento de transformación a Instituto tomando en cuenta las
+                    fortalezas y las debilidades(en caso de haberlas) del CCM?</p>
+                    {% set nombreComentario = "comentario2" %}
+                {% elseif pregunta == 2 %}
+                    <p class="resultados-pregunta mb-4">3. ¿Considera que el CCM tiene elementos académicos sólidos para
+                    iniciar con los trabajos de creación de un documento que contemple la transformación de Centro a
+                    Instituto.?</p>
+                    {% set nombreComentario = "comentario3" %}
+                {% elseif pregunta == 3 %}
+                    <p class="resultados-pregunta mb-3">4. ¿Usted participaría en alguna comisión (de varias que se formarían)
+                        para trabajar, analizar y describir determinados temas que formarían parte del documento que de sustento
+                        a la transformación a Instituto ?</p>
+                    <p class="text-secondary mb-4">
+                        Algunos de estos temas o comisiones pueden ser por ejemplo: (i) Antecedentes, (ii) Situación Actual
+                        del CCM, (iii) El CCM en el contexto nacional e internacional, (iv) Docencia, Posgrado y Formación
+                        de Recursos Humanos, (v) áreas de investigación actuales, áreas nuevas, interdisciplinariedad, (vi)
+                        Las Unidades de Apoyo, (vii) Vinculación con sectores públicos y privados de la sociedad, (viii) el
+                        CCM a mediano y largo plazo, etc, solo por citar solo algunos temas a considerar.)
+                    </p>
+                    {% set nombreComentario = "comentario4" %}
+                {% endif %}
+
+                <h6 class="mt-4"> Comentarios</h6>
+
+                {% if consultas|length == 0 %}
+                    <div class="empty">
+                        <div class="display-6">Aún no hay comentarios</div>
+                    </div>
+                    <div class="my-5 d-flex">
+                        <a class="btn btn-outline-success" href="{{ path('app_consulta_resultados') }}" role="button"><i class="bi bi-arrow-left"></i> Resultados</a>
+                    </div>
+                {% else %}
+
+                    {% set numComentarios = 0 %}
+
+                    <table class="table">
+                        <thead></thead>
+                        <tbody>
+                        {% for consulta in consultas %}
+
+                            {% if attribute(consulta, nombreComentario) %}
+                                <tr>
+                                    <td class="py-4">
+                                        <div class="d-flex flex-column my-3">
+                                            {% if consulta.fecha %}
+                                                <div class="fecha-comentario">
+                                                    {{ consulta.fecha|ago }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="comentario">{{  attribute(consulta, nombreComentario) | raw }}</div>
+                                    </td>
+                                </tr>
+                                {% set numComentarios = numComentarios + 1 %}
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+
+                {% if numComentarios == 0 %}
+                    <h4>No hay comentarios para esta pregunta.</h4>
+                {% endif %}
+
+                <a class="btn btn-outline-success my-4" href="{{ path('app_consulta_resultados') }}" role="button"><i class="bi bi-arrow-left"></i> Resultados</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

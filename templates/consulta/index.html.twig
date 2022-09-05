@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Consulta Instituto{% endblock %}
+
+{% block body %}
+
+  <div class="container consulta-inicio">
+    <div class="row">
+      <div class="col-12 col-lg-10">
+
+        <img class="my-4" src="{{ asset("images/ccm-white-logo.png") }}" alt="CCM logo white">
+        <h1 class="cover-title">Encuesta para la transformación<br>
+          de Centro a Instituto</h1>
+        <p class="cover-subtitle">Encuesta de la pertinencia de crear un documento que sustente la
+          transformación del CCM a Instituto.</p>
+
+        <div class="col">
+          <div class="col-8">
+            <p class="text-cover mt-4">Como resultado de dos reuniones previas del Colegio de Académicos del Centro sobre la idoneidad de
+              iniciar un trabajo conjunto, le pedimos responda las siguientes cuatro preguntas.
+              La idea de esta encuesta consiste en:</p>
+
+            <p class="consulta-list">(a). Saber si la mayoría considera pertinente iniciar trabajos que permitan la creación de un documento de
+              transformación a Instituto.</p>
+            <p class="consulta-list">(b). Estimar el capital humano con el que se podrá contar para los trabajos correspondientes.</p>
+            <p class="consulta-list">(c). En caso de que las opiniones sean favorables, se determinarán los grupos de trabajo para elaborar el
+              documento, mismo que será sometido a toda la comunidad del CCM y a su Consejo Interno para su aprobación y/o
+              modificaciones al mismo, y posteriormente enviarlos a las autoridades universitarias correspondientes.</p>
+
+          </div>
+
+          <div class="d-flex justify-content-end mt-4">
+            <a class="btn btn-light btn-cover" href="{{ path('app_consulta_new') }}" role="button">Comenzar <i class="bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.body.classList.add('cover-bg');
+  </script>
+  {#  <a href="{{ path('app_consulta_new') }}">Create new</a>#}
+{% endblock %}

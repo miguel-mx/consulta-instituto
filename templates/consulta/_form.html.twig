@@ -1,0 +1,136 @@
+{#
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}#}
+
+<form id="consulta-form" name="consulta" method="post">
+    <div class="row consulta">
+        <div class="col-12 col-lg-8">
+            <div class="progress" style="height: 4px;">
+                <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <img src="{{ asset("images/ccm-logo-gris.png") }}" alt="CCM logo" class="my-5">
+
+            <div class="tab">
+                <fieldset class="mb-3">
+{#                    <legend class="col-form-label required">#</legend>#}
+                    <p class="texto-pregunta">1. ¿Usted cree que hay tareas y/o procesos en el CCM que todavía no están lo suficientemente
+                        maduros para iniciar un proceso de transformación a Instituto?</p>
+                    <div id="consulta_tareas">
+                        <div class="btn-group mt-3 mb-5">
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label required" for="consulta_tareas_0">
+                                    <input type="radio" id="consulta_tareas_0" name="consulta[tareas]" required="required" class="form-check-input js-input" value="1" />
+                                    <button type="button" class="btn btn-outline-secondary w-50 js-button js-btn-si" disabled>Sí</button>
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label required" for="consulta_tareas_1">
+                                    <input type="radio" id="consulta_tareas_1" name="consulta[tareas]" required="required" class="form-check-input js-input" value="0" />
+                                    <button type="button" class="btn btn-outline-secondary w-50 js-button js-btn-no" disabled>No</button>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="mb-3">
+                    {{ form_widget(form.comentario1) }}
+                </div>
+            </div>
+
+            <div class="tab">
+                <fieldset class="mb-3">
+                    <p class="texto-pregunta">2. En base a su respuesta de la pregunta 1, ¿considera que no hay
+                        impedimento para trabajar en un documento de transformación a Instituto tomando en cuenta las
+                        fortalezas y las debilidades(en caso de haberlas) del CCM?</p>
+                    <div id="consulta_documento">
+                        <div class="btn-group mt-3 mb-5">
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label required" for="consulta_documento_0">
+                                    <input type="radio" id="consulta_documento_0" name="consulta[documento]" required="required" class="form-check-input js-input" value="1" />
+                                    <button type="button" class="btn btn-outline-secondary w-50 js-button js-btn-si" disabled>Sí</button>
+                               </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label required" for="consulta_documento_1">
+                                    <input type="radio" id="consulta_documento_1" name="consulta[documento]" required="required" class="form-check-input js-input" value="0" />
+                                    <button type="button" class="btn btn-outline-secondary w-50 js-button js-btn-no" disabled>No</button>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="mb-3">
+                    {{ form_widget(form.comentario2) }}
+                </div>
+            </div>
+
+            <div class="tab">
+                <fieldset class="mb-3">
+                    <p class="texto-pregunta">3. ¿Considera que el CCM tiene elementos académicos sólidos para iniciar
+                        con los trabajos de creación de un documento que contemple la transformación de Centro a Instituto. ?</p>
+                    <div id="consulta_academico">
+                        <div class="btn-group mt-3 mb-5 ">
+                            <div class="form-check  form-check-inline">
+                                <label class="form-check-label required" for="consulta_academico_0">
+                                    <input type="radio" id="consulta_academico_0" name="consulta[academico]" required="required" class="form-check-input js-input" value="1" />
+                                    <button type="button" class="btn btn-outline-secondary w-50 js-button js-btn-si" disabled>Sí</button>
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label required" for="consulta_academico_1">
+                                    <input type="radio" id="consulta_academico_1" name="consulta[academico]" required="required" class="form-check-input js-input" value="0" />
+                                    <button type="button" class="btn btn-outline-secondary w-50 js-button js-btn-no" disabled>No</button>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="mb-3">
+                    {{ form_widget(form.comentario3) }}
+                </div>
+            </div>
+
+            <div class="tab">
+                <fieldset class="mb-3">
+                    <p class="texto-pregunta">4. ¿Usted participaría en alguna comisión (de varias que se formarían )
+                        para trabajar, analizar y describir determinados temas que formarían parte del documento que de
+                        sustento a la transformación a Instituto ?
+                    </p>
+                    <p class="consulta-disabled">Algunos de estos temas o comisiones pueden ser por ejemplo: (i) Antecedentes, (ii) Situación
+                        Actual del CCM, (iii) El CCM en el contexto nacional e internacional, (iv) Docencia, Posgrado y
+                        Formación de Recursos Humanos, (v) áreas de investigación actuales, áreas nuevas, interdisciplinariedad,
+                        (vi) Las Unidades de Apoyo, (vii) Vinculación con sectores públicos y privados de la sociedad,
+                        (viii) el CCM a mediano y largo plazo, etc, solo por citar solo algunos temas a considerar.)
+                    </p>
+                    <div id="consulta_comision">
+                        <div class="btn-group mt-3 mb-5 ">
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label required" for="consulta_comision_0">
+                                    <input type="radio" id="consulta_comision_0" name="consulta[comision]" required="required" class="form-check-input js-input" value="1" />
+                                    <button type="button" class="btn btn-outline-secondary w-50 js-button js-btn-si" disabled>Sí</button>
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label required" for="consulta_comision_1">
+                                    <input type="radio" id="consulta_comision_1" name="consulta[comision]" required="required" class="form-check-input js-input" value="0" />
+                                    <button type="button" class="btn btn-outline-secondary w-50 js-button js-btn-no" disabled>No</button>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="mb-3">
+                    {{ form_widget(form.comentario4) }}
+                </div>
+            </div>
+
+
+            {{ form_row(form._token) }}
+            <div class="my-5 d-flex flex-row-reverse">
+                <button id="btn-next" class="btn btn-next d-none">Continuar</button>
+            </div>
+        </div>
+    </div>
+</form>
