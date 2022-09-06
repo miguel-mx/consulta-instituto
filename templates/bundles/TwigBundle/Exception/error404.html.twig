@@ -2,11 +2,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container py-5">
-        <h1>Page not found</h1>
+    <div class="">
+        <div class="error-big">404</div>
+        <div class="error-header">Page not found</div>
+        <a class="btn btn-light btn-cover mt-5" href="{{ path('app_consulta_index') }}" role="button">Inicio</a>
     </div>
 
+
     <script>
+        // d-flex h-100 text-center
+        document.body.classList.add('d-flex');
+        document.body.classList.add('justify-content-center');
+        document.body.classList.add('h-100');
+        document.body.classList.add('text-center');
         document.body.classList.add('error-cover-bg');
     </script>
 {% endblock %}

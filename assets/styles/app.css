@@ -1,5 +1,4 @@
 @import "~bootstrap";
-@import "~bootstrap-icons";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body {
@@ -188,10 +187,32 @@ body {
     color: #595959;
 }
 
+.error-container {
+    max-width: 750px;
+    margin-top: 20%;
+}
+
 .error-cover-bg {
-    background: url("../images/404.png") no-repeat center center fixed;
+    background: url("https://dev.matmor.unam.mx/consulta-instituto/build/images/404.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.error-big {
+    margin-top: 50%;
+    font-weight: 900;
+    font-size: 180px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #CEEF00;
+}
+
+.error-header {
+    font-weight: 900;
+    font-size: 58px;
+    line-height: 56px;
+    color: #CEEF00;
+
 }

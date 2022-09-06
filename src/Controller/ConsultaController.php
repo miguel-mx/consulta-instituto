@@ -98,46 +98,4 @@ class ConsultaController extends AbstractController
             'form' => $form,
         ]);
     }
-
-//   /* /**
-//     * @Route("/{id}", name="app_consulta_show", methods={"GET"})
-//     */
-//    public function show(Consulta $consultum): Response
-//    {
-//        return $this->render('consulta/show.html.twig', [
-//            'consultum' => $consultum,
-//        ]);
-//    }
-//
-//    /**
-//     * @Route("/{id}/edit", name="app_consulta_edit", methods={"GET", "POST"})
-//     */
-//    public function edit(Request $request, Consulta $consultum, ConsultaRepository $consultaRepository): Response
-//    {
-//        $form = $this->createForm(ConsultaType::class, $consultum);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $consultaRepository->add($consultum, true);
-//
-//            return $this->redirectToRoute('app_consulta_index', [], Response::HTTP_SEE_OTHER);
-//        }
-//
-//        return $this->renderForm('consulta/edit.html.twig', [
-//            'consultum' => $consultum,
-//            'form' => $form,
-//        ]);
-//    }
-//
-//    /**
-//     * @Route("/{id}", name="app_consulta_delete", methods={"POST"})
-//     */
-//    public function delete(Request $request, Consulta $consultum, ConsultaRepository $consultaRepository): Response
-//    {
-//        if ($this->isCsrfTokenValid('delete'.$consultum->getId(), $request->request->get('_token'))) {
-//            $consultaRepository->remove($consultum, true);
-//        }
-//
-//        return $this->redirectToRoute('app_consulta_index', [], Response::HTTP_SEE_OTHER);
-//    }*/
 }
