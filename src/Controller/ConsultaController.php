@@ -90,7 +90,7 @@ class ConsultaController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $consultaRepository->add($consultum, true);
 
-            return $this->redirectToRoute('app_consulta_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_consulta_resultados', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('consulta/new.html.twig', [
